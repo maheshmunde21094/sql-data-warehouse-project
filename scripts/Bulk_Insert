@@ -1,0 +1,14 @@
+TRUNCATE TABLE bronze.crm_cust_info
+
+BULK INSERT bronze.crm_cust_info
+from 'C:\Users\MaheshShamMunde\OneDrive - WAISL LIMITED\Desktop\1. Building a Modern Data Warehouse - Data Engineering Bootcamp\sql-data-warehouse-project (1)\sql-data-warehouse-project\datasets\source_crm\cust_info.csv'
+with (
+		FIRSTROW = 2,
+		FIELDTERMINATOR = ',',
+		TABLOCK
+	)
+
+select * from [bronze].[crm_cust_info]
+
+-- count the rows
+select count(*) from [bronze].[crm_cust_info]
